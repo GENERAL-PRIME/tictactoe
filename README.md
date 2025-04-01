@@ -4,7 +4,7 @@ Congratulations! You've stumbled upon yet another **Tic-Tac-Toe** implementation
 
 ## 🤡 Features (If You Can Call Them That)
 
-- **🔮 Minimax Algorithm:** A fancy way of saying "it brute-forces every possible move like a desperate job seeker sending out résumés." It’s not smart—it just doesn’t have anything better to do.
+- **🔮 Minimax Algorithm with Alpha-Beta pruning:** A fancy way of saying "it brute-forces every possible move like a desperate job seeker sending out résumés, but with a little more finesse, cutting out the unnecessary ones before anyone notices." It’s still not smart—it just doesn’t have anything better to do, but at least it’s a bit more efficient.
 
 - **🖥️ Stunning Graphics:** If you enjoy staring at a **3x3 grid** of text like it’s the Mona Lisa, then buddy, you’re in for a treat.
 
