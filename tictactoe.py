@@ -113,31 +113,37 @@ def utility(board):
     return 0
 
 
-def minimax(board):
+def minimax(board, alpha=float('-inf'), beta=float('inf')):
     """
     Returns the optimal action for the current player on the board.
     """
     current_player = player(board)
 
-    def max_value(board): #helper function for maximizing "X"
+    def max_value(board, alpha, beta): #helper function for maximizing "X"
         if terminal(board):
             return utility(board), None
         v, best_action = float('-inf'), None # initialize v to negative infinity
         for action in actions(board): # iterate through all possible actions
-            new_v, _ = min_value(result(board, action)) # returns the winner if action is taken
+            new_v, _ = min_value(result(board, action), alpha, beta) # returns the winner if action is taken
             if new_v > v:
                 v, best_action = new_v, action
+            alpha = max(alpha, v)
+            if alpha >= beta:  # Pruning step
+                break
         return v, best_action
 
-    def min_value(board): #helper function for minimizing "O"
+    def min_value(board, alpha, beta): #helper function for minimizing "O"
         if terminal(board):
             return utility(board), None
         v, best_action = float('inf'), None # initialize v to positive infinity
         for action in actions(board): # iterate through all possible actions
-            new_v, _ = max_value(result(board, action)) # returns the winner if action is taken
+            new_v, _ = max_value(result(board, action), alpha, beta) # returns the winner if action is taken
             if new_v < v:
                 v, best_action = new_v, action
+            beta = min(beta, v)
+            if alpha >= beta:  # Pruning step
+                break
         return v, best_action
 
-    _, best_move = max_value(board) if current_player == X else min_value(board)
+    _, best_move = max_value(board, alpha, beta) if current_player == X else min_value(board, alpha, beta)
     return best_move
