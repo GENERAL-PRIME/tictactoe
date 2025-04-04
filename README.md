@@ -17,7 +17,7 @@ Because apparently, downloading yet another Tic-Tac-Toe script is how you spend 
 1. **Clone the repository** (because you want this masterpiece on your machine):
 
    ```sh
-   git clone https://github.com/general-prime/tictactoe.git
+   https://github.com/GENERAL-PRIME/tictactoe.git
    cd tictactoe
    ```
 
